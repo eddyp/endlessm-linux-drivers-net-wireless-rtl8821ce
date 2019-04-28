@@ -455,7 +455,7 @@ void halbtc8821c2ant_monitor_wifi_ctr(IN struct btc_coexist *btcoexist)
 	     BT_8821C_2ANT_BT_STATUS_NON_CONNECTED_IDLE) ||
 	    (coex_dm->bt_status ==
 	     BT_8821C_2ANT_BT_STATUS_CONNECTED_IDLE) ||
-	    (coex_sta->bt_disabled))
+	    (coex_sta->bt_disabled)) {
 		bt_idle = TRUE;
 
 		if (cck_cnt > 250) {
@@ -492,6 +492,7 @@ void halbtc8821c2ant_monitor_wifi_ctr(IN struct btc_coexist *btcoexist)
 			coex_sta->wl_noisy_level = 1;
 		else
 			coex_sta->wl_noisy_level = 0;
+	}
 
 	if ((wifi_busy) && (wifi_rssi >= 30) && (!wifi_under_b_mode)) {
 		total_cnt = cnt_crcok;
